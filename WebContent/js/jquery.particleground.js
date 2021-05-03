@@ -7,84 +7,84 @@
  * @description Creates a canvas based particle system background
  *
  */
-//(function(window, document,$) {
-//console.log("particleground.js");
-//
-//    /**
-//     * Particle
-//     */
-//    function Particle() {
-//      this.stackPos;
-//      this.active = true;
-//      this.layer = Math.ceil(Math.random() * 3);
-//      this.parallaxOffsetX = 0;
-//      this.parallaxOffsetY = 0;
-//
-//      // Initial particle position
-//      this.position = {
-//        x: Math.ceil(Math.random() * canvas.width),
-//        y: Math.ceil(Math.random() * canvas.height)
-//      }
-//
-//      // Random particle speed, within min and max values
-//      this.speed = {}
-//      switch (options.directionX) {
-//        case 'left':
-//          this.speed.x = +(-options.maxSpeedX + (Math.random() * options.maxSpeedX) - options.minSpeedX).toFixed(2);
-//          break;
-//        case 'right':
-//          this.speed.x = +((Math.random() * options.maxSpeedX) + options.minSpeedX).toFixed(2);
-//          break;
-//        default:
-//          this.speed.x = +((-options.maxSpeedX / 2) + (Math.random() * options.maxSpeedX)).toFixed(2);
-//          this.speed.x += this.speed.x > 0 ? options.minSpeedX : -options.minSpeedX;
-//          break;
-//      }
-//      switch (options.directionY) {
-//        case 'up':
-//          this.speed.y = +(-options.maxSpeedY + (Math.random() * options.maxSpeedY) - options.minSpeedY).toFixed(2);
-//          break;
-//        case 'down':
-//          this.speed.y = +((Math.random() * options.maxSpeedY) + options.minSpeedY).toFixed(2);
-//          break;
-//        default:
-//          this.speed.y = +((-options.maxSpeedY / 2) + (Math.random() * options.maxSpeedY)).toFixed(2);
-//          this.speed.x += this.speed.y > 0 ? options.minSpeedY : -options.minSpeedY;
-//          break;
-//      }
-//    }
-//
-//	/**
-//	 * Import below open source. 
-//	 * @auth: DevTED-kr
-//	 * @see: http://paulirish.com/2011/requestanimationframe-for-smart-animating/
-//	 * @see: http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
-//	 * @license: MIT license
-//	 */
-// 	var lastTime = 0;
-//    var vendors = ['ms', 'moz', 'webkit', 'o'];
-//    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-//      window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
-//      window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame']
-//                                 || window[vendors[x]+'CancelRequestAnimationFrame'];
-//    }
-//
-//    if (!window.requestAnimationFrame)
-//      window.requestAnimationFrame = function(callback, element) {
-//        var currTime = new Date().getTime();
-//        var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-//        var id = window.setTimeout(function() { callback(currTime + timeToCall); },
-//          timeToCall);
-//        lastTime = currTime + timeToCall;
-//        return id;
-//      };
-//
-//    if (!window.cancelAnimationFrame)
-//      window.cancelAnimationFrame = function(id) {
-//        clearTimeout(id);
-//      };
-//
-//}(jQuery));
+(function(window, document,$) {
+console.log("particleground.js");
+
+    /**
+     * Particle
+     */
+    function Particle() {
+      this.stackPos;
+      this.active = true;
+      this.layer = Math.ceil(Math.random() * 3);
+      this.parallaxOffsetX = 0;
+      this.parallaxOffsetY = 0;
+
+      // Initial particle position
+      this.position = {
+        x: Math.ceil(Math.random() * canvas.width),
+        y: Math.ceil(Math.random() * canvas.height)
+      }
+
+      // Random particle speed, within min and max values
+      this.speed = {}
+      switch (options.directionX) {
+        case 'left':
+          this.speed.x = +(-options.maxSpeedX + (Math.random() * options.maxSpeedX) - options.minSpeedX).toFixed(2);
+          break;
+        case 'right':
+          this.speed.x = +((Math.random() * options.maxSpeedX) + options.minSpeedX).toFixed(2);
+          break;
+        default:
+          this.speed.x = +((-options.maxSpeedX / 2) + (Math.random() * options.maxSpeedX)).toFixed(2);
+          this.speed.x += this.speed.x > 0 ? options.minSpeedX : -options.minSpeedX;
+          break;
+      }
+      switch (options.directionY) {
+        case 'up':
+          this.speed.y = +(-options.maxSpeedY + (Math.random() * options.maxSpeedY) - options.minSpeedY).toFixed(2);
+          break;
+        case 'down':
+          this.speed.y = +((Math.random() * options.maxSpeedY) + options.minSpeedY).toFixed(2);
+          break;
+        default:
+          this.speed.y = +((-options.maxSpeedY / 2) + (Math.random() * options.maxSpeedY)).toFixed(2);
+          this.speed.x += this.speed.y > 0 ? options.minSpeedY : -options.minSpeedY;
+          break;
+      }
+    }
+
+	/**
+	 * Import below open source. 
+	 * @auth: DevTED-kr
+	 * @see: http://paulirish.com/2011/requestanimationframe-for-smart-animating/
+	 * @see: http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
+	 * @license: MIT license
+	 */
+ 	var lastTime = 0;
+    var vendors = ['ms', 'moz', 'webkit', 'o'];
+    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+      window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+      window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame']
+                                 || window[vendors[x]+'CancelRequestAnimationFrame'];
+    }
+
+    if (!window.requestAnimationFrame)
+      window.requestAnimationFrame = function(callback, element) {
+        var currTime = new Date().getTime();
+        var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+        var id = window.setTimeout(function() { callback(currTime + timeToCall); },
+          timeToCall);
+        lastTime = currTime + timeToCall;
+        return id;
+      };
+
+    if (!window.cancelAnimationFrame)
+      window.cancelAnimationFrame = function(id) {
+        clearTimeout(id);
+      };
+
+}(jQuery));
 
 ; (function(window, document) {
 	"use strict";
