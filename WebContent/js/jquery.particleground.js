@@ -192,12 +192,16 @@ console.log("particleground.js");
 		 * Draw particles
 		 */
 		function draw() {
-//			console.log("draw");
+			console.log("draw");
+			console.log(canvasSupport);
 			if (!canvasSupport) { return; }
 
 			winW = window.innerWidth;
 			winH = window.innerHeight;
-
+			
+			
+			console.log(winW);
+			console.log(winH); // responsive window size check
 			// Wipe canvas
 			ctx.clearRect(0, 0, canvas.width, canvas.height);
 
