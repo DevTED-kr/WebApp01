@@ -180,7 +180,7 @@ console.log("particleground.js");
 		 * Style the canvas
 		 */
 		function styleCanvas() {
-			console.log("styleCanvas");
+			
 			canvas.width = element.offsetWidth;
 			canvas.height = element.offsetHeight;
 			ctx.fillStyle = options.dotColor;
@@ -288,11 +288,11 @@ console.log("particleground.js");
 			// Random particle speed, within min and max values
 			this.speed = {}
 			switch (options.directionX) {
-				case 'left':
-					this.speed.x = +(-options.maxSpeedX + (Math.random() * options.maxSpeedX) - options.minSpeedX).toFixed(2);
-					break;
 				case 'right':
 					this.speed.x = +((Math.random() * options.maxSpeedX) + options.minSpeedX).toFixed(2);
+					break;
+				case 'left':
+					this.speed.x = +(-options.maxSpeedX + (Math.random() * options.maxSpeedX) - options.minSpeedX).toFixed(2);
 					break;
 				default:
 					this.speed.x = +((-options.maxSpeedX / 2) + (Math.random() * options.maxSpeedX)).toFixed(2);
